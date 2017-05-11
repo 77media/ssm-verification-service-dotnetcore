@@ -1,7 +1,41 @@
 # ssm-verification-service-dotnetcore
 Sample user verification service that will either return a formatted user object or false.
 
+#### request
+HTTP POST
+http://localhost:5000/api/verify
 
+`{
+    LastName: "Doe",
+    ConfirmationNumber: "4567",
+    ScanCode: "890"
+}`
+
+#### result
+
+`{
+  "id": 1,
+  "membership": "12345",
+  "firstName": "John",
+  "lastName": "Doe",
+  "verified": true
+}`
+
+## invalid verification
+
+
+HTTP POST
+http://localhost:5000/api/verify
+
+`{
+    LastName: "SDFSDF",
+    ConfirmationNumber: "12324",
+    ScanCode: ""
+}`
+
+## sample result
+
+400 Bad Request
 
 ## This application consists of:
 
