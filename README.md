@@ -6,13 +6,15 @@ A POST is preferred to a GET because more fields can be sent and data is not log
 
 In production the route should always be secured with SSL encryption via https.
 
-HTTP POST
-http://localhost:5000/api/verify
+POST /api/verify HTTP/1.1  
+Host: localhost:5000  
+Content-Type: application/json  
+Cache-Control: no-cache  
 
 ```javascript
 {  
-    LastName: "Doe",  
-    ConfirmationNumber: "4567"  
+    "lastName": "Doe",  
+    "confirmationNumber": "4567"  
 }  
 ```
 
@@ -42,14 +44,16 @@ http://localhost:5000/api/verify
 ## invalid verification
 
 
-HTTP POST
-http://localhost:5000/api/verify
+POST /api/verify HTTP/1.1  
+Host: localhost:5000  
+Content-Type: application/json  
+Cache-Control: no-cache  
 
 ```javascript
 { 
-    LastName: "SDFSDF",
-    ConfirmationNumber: "12324", 
-    ScanCode: ""
+    "lastName": "SDFSDF",
+    "confirmationNumber": "12324", 
+    "scanCode": ""
 }
 ```
 
