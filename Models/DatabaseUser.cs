@@ -1,3 +1,5 @@
+using System;
+
 public class DatabaseUser
 {
     public int Id { get; set; }
@@ -9,7 +11,11 @@ public class DatabaseUser
     public string LastName { get; set; }
 
     public string ConfirmationNumber { get; set; }
-    
+
     public string ScanCode { get; set; }
+
+    public string MembershipId { get; set; }
+
+    public DateTime MembershipExpiration { get; set; }
 
 }

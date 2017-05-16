@@ -22,15 +22,17 @@ namespace WebAPIApplication.Controllers
 
                 // TODO: query a real database or file
                 var items = new List<DatabaseUser>();
-
+                var MembershipExpiration = new DateTime(2020, 1, 1);
                 items.Add(new DatabaseUser()
                 {
                     Id = 1,
-                    Membership = "12345",
                     FirstName = "John",
                     LastName = "Doe",
                     ConfirmationNumber = "4567",
-                    ScanCode = "890"
+                    ScanCode = "890",
+                    MembershipId = "12345",
+                    MembershipExpiration = MembershipExpiration
+
                 });
 
                 var item = items.Where(x => x.LastName == value.LastName && (x.ConfirmationNumber == value.ConfirmationNumber || x.ScanCode == value.ScanCode)).First();
@@ -46,8 +48,9 @@ namespace WebAPIApplication.Controllers
                     Id = item.Id,
                     FirstName = item.FirstName,
                     LastName = item.LastName,
-                    Membership = item.Membership,
-                    Verified = true
+                    MembershipId = item.MembershipId,
+                    MembershipExpiration = item.MembershipExpiration,
+                    IsValid = true
                 };
 
                 return new ObjectResult(response);
